@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luna Santos| Portfólio </title>
+  <link rel="icon" href="img/Captura de tela 2025-05-15 081824.png" />
+  <!-- Fonte Gentium Basic -->
+  <link href="https://fonts.googleapis.com/css2?family=Gentium+Basic&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset e base */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Gentium Basic', serif;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #fff0f6; /* rosa muito claro */
+      color: #5a2a3c; /* rosa escuro suave */
+      font-size: 17.3px; /* 18px - 15% */
+      line-height: 1.65;
+      scroll-behavior: smooth;
+    }
+
+
+    body.dark {
+      background: #3e1e2e;
+      color: #f8d7e0;
+    }
+    /* Container full width */
+    main, header, nav, footer, section {
+      width: 100vw;
+      max-width: 100vw;
+      padding-left: 48px;
+      padding-right: 48px;
+      box-sizing: border-box;
+    }
+    /* Cabeçalho */
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 28px;
+      padding: 48px 0 36px 0;
+      justify-content: center;
+      background: #ffe6f0; /* rosa claro */
+      box-shadow: 0 4px 12px rgba(154, 50, 90, 0.15);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark header {
+      background: #5a2a3c;
+      box-shadow: 0 4px 12px rgba(154, 50, 90, 0.7);
+      color: #f8d7e0;
+    }
+    header img {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      border: 5px solid #d46a8c; /* rosa médio */
+      object-fit: cover;
+      box-shadow: 0 8px 16px rgba(212, 106, 140, 0.6);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    header img:hover {
+      transform: scale(1.1);
+    }
+    header .intro {
+      max-width: 720px;
+      text-align: center;
+    }
+    header .intro h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      color: #8e2e4a; /* rosa escuro */
+      margin-bottom: 14px;
+      user-select: text;
+    }
+    body.dark header .intro h1 {
+      color: #f8d7e0;
+    }
+    header .intro p {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #9b4d6a;
+      user-select: text;
+    }
+    body.dark header .intro p {
+      color: #f3c5d3;
+    }
+    /* Botão alternar tema */
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #d46a8c;
+      border: none;
+      color: white;
+      padding: 14px 24px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      cursor: pointer;
+      box-shadow: 0 5px 14px rgba(212, 106, 140, 0.7);
+      transition: background 0.3s ease;
+      z-index: 1000;
+      user-select: none;
+    }
+    #theme-toggle:hover {
+      background: #8e2e4a;
+    }
+    /* Navegação fixa */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #ffe6f0cc;
+      backdrop-filter: saturate(180%) blur(10px);
+      padding: 20px 0;
+      margin-bottom: 60px;
+      box-shadow: 0 3px 12px rgba(154, 50, 90, 0.1);
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      z-index: 999;
+      user-select: none;
+      color: #8e2e4a;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark nav {
+      background: #5a2a3ccc;
+      color: #f8d7e0;
+      box-shadow: 0 3px 12px rgba(154, 50, 90, 0.7);
+    }
+    nav a {
+      text-decoration: none;
+      color: inherit;
+      border: 3px solid transparent;
+      padding: 14px 32px;
+      border-radius: 40px;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+    nav a:hover, nav a:focus {
+      background: #d46a8c;
+      color: white;
+      border-color: #d46a8c;
+      outline: none;
+    }
+    body.dark nav a:hover, body.dark nav a:focus {
+      background: #f8d7e0;
+      color: #5a2a3c;
+      border-color: #f8d7e0;
+    }
+    /* Seções */
+    section {
+      background: transparent;
+      padding-bottom: 70px;
+      max-width: 100vw;
+      margin: 0 auto;
+    }
+    h2 {
+      font-size: 3.6rem;
+      color: #d46a8c;
+      margin-bottom: 36px;
+      font-weight: 700;
+      text-align: center;
+      user-select: none;
+      transition: color 0.3s;
+    }
+    body.dark h2 {
+      color: #f8d7e0;
+    }
+    /* Skills */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      max-width: 100vw;
+    }
+    .skill-item {
+      background: #f9cbd7;
+      color: #5a2a3c;
+      border-radius: 60px;
+      padding: 18px 36px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 14px rgba(212, 106, 140, 0.25);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      cursor: default;
+      user-select: none;
+      transition: background 0.3s ease, color 0.3s ease;
+      min-width: 240px;
+      max-width: 360px;
+    }
+    .skill-item:hover {
+      background: #d46a8c;
+      color: white;
+      box-shadow: 0 8px 22px rgba(212, 106, 140, 0.6);
+    }
+    body.dark .skill-item {
+      background: #8e2e4a;
+      color: #f8d7e0;
+      box-shadow: 0 6px 14px rgba(154, 50, 90, 0.7);
+    }
+    body.dark .skill-item:hover {
+      background: #f8d7e0;
+      color: #5a2a3c;
+      box-shadow: 0 8px 22px rgba(154, 50, 90, 0.9);
+    }
+    .skill-icon {
+      width: 32px;
+      height: 32px;
+      fill: currentColor;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+    .skill-item:hover .skill-icon {
+      transform: scale(1.25);
+    }
+    /* Projetos */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(380px,1fr));
+      gap: 42px;
+      max-width: 100vw;
+      padding: 0 12px;
+    }
+    .project-card {
+      background: #ffe6f0;
+      border-radius: 24px;
+      padding: 32px 36px;
+      box-shadow: 0 10px 28px rgba(212, 106, 140, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      user-select: none;
+      color: #5a2a3c;
+    }
+    body.dark .project-card {
+      background: #5a2a3c;
+      box-shadow: 0 10px 28px rgba(154, 50, 90, 0.7);
+      color: #f8d7e0;
+    }
+    .project-card:hover {
+      transform: translateY(-14px);
+      box-shadow: 0 20px 42px rgba(212, 106, 140, 0.45);
+    }
+    .project-card h3 {
+      margin-bottom: 22px;
+      font-size: 1.9rem;
+      user-select: text;
+    }
+    .project-card p {
+      flex-grow: 1;
+      font-size: 1.2rem;
+      margin-bottom: 28px;
+      user-select: text;
+    }
+    .project-card a {
+      align-self: flex-start;
+      text-decoration: none;
+      color: #d46a8c;
+      border: 3px solid #d46a8c;
+      padding: 16px 40px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 8px 22px rgba(212, 106, 140, 0.3);
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+    .project-card a:hover, .project-card a:focus {
+      background: #d46a8c;
+      color: white;
+      outline: none;
+      box-shadow: 0 12px 32px rgba(212, 106, 140, 0.7);
+    }
+    body.dark .project-card a {
+      color: #f8d7e0;
+      border-color: #f8d7e0;
+      box-shadow: 0 8px 22px rgba(154, 50, 90, 0.7);
+    }
+    body.dark .project-card a:hover, body.dark .project-card a:focus {
+      background: #f8d7e0;
+      color: #5a2a3c;
+      box-shadow: 0 12px 32px rgba(154, 50, 90, 0.9);
+    }
+    /* Formação Acadêmica */
+    .education-list {
+      max-width: 900px;
+      margin: 0 auto;
+      list-style: none;
+      padding-left: 0;
+      color: #5a2a3c;
+      user-select: text;
+    }
+    body.dark .education-list {
+      color: #f8d7e0;
+    }
+    .education-list li {
+      margin-bottom: 28px;
+    }
+    .education-list strong {
+      color: #d46a8c;
+      font-size: 1.3rem;
+    }
+    body.dark .education-list strong {
+      color: #f8d7e0;
+    }
+    /* Certificações e Prêmios */
+    .certifications-list {
+      max-width: 900px;
+      margin: 0 auto;
+      list-style: none;
+      padding-left: 0;
+      color: #5a2a3c;
+      user-select: text;
+    }
+    body.dark .certifications-list {
+      color: #f8d7e0;
+    }
+    .certifications-list li {
+      margin-bottom: 26px;
+    }
+    .certifications-list strong {
+      color: #d46a8c;
+      font-size: 1.3rem;
+    }
+    body.dark .certifications-list strong {
+      color: #f8d7e0;
+    }
+    /* Depoimentos */
+    .testimonials {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      font-style: italic;
+      color: #7a3a56;
+      user-select: text;
+    }
+    body.dark .testimonials {
+      color: #f3c5d3;
+    }
+    .testimonial-item {
+      background: #ffd9e8;
+      padding: 24px 32px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(212, 106, 140, 0.3);
+      position: relative;
+      color: #5a2a3c;
+    }
+    body.dark .testimonial-item {
+      background: #7a3a56;
+      box-shadow: 0 6px 18px rgba(154, 50, 90, 0.7);
+      color: #f8d7e0;
+    }
+    .testimonial-item::before {
+      content: "“";
+      font-size: 4rem;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      color: #d46a8c;
+      opacity: 0.2;
+      user-select: none;
+    }
+    body.dark .testimonial-item::before {
+      color: #f8d7e0;
+    }
+    .testimonial-author {
+      margin-top: 14px;
+      font-weight: 700;
+      font-style: normal;
+      color: #8e2e4a;
+      user-select: text;
+    }
+    body.dark .testimonial-author {
+      color: #f8d7e0;
+    }
+    /* Blog / Artigos */
+    .blog-list {
+      max-width: 900px;
+      margin: 0 auto;
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      color: #5a2a3c;
+      user-select: text;
+    }
+    body.dark .blog-list {
+      color: #f8d7e0;
+    }
+    .blog-list li {
+      background: #ffe6f0;
+      padding: 20px 28px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(212, 106, 140, 0.2);
+      transition: background-color 0.3s ease;
+    }
+    body.dark .blog-list li {
+      background: #5a2a3c;
+      box-shadow: 0 6px 18px rgba(154, 50, 90, 0.7);
+    }
+    .blog-list li:hover {
+      background: #f9cbd7;
+    }
+    body.dark .blog-list li:hover {
+      background: #8e2e4a;
+    }
+    .blog-list a {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #d46a8c;
+      text-decoration: none;
+      user-select: text;
+    }
+    .blog-list a:hover, .blog-list a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+    body.dark .blog-list a {
+      color: #f8d7e0;
+    }
+    /* Contato */
+    #contato p {
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 36px;
+      user-select: text;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 52px;
+      flex-wrap: wrap;
+      max-width: 100vw;
+      padding: 0 12px;
+      margin-bottom: 48px;
+    }
+    .contact-links a {
+      text-decoration: none;
+      color: #d46a8c;
+      border: 3px solid #d46a8c;
+      padding: 18px 48px;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 1.3rem;
+      box-shadow: 0 8px 20px rgba(212, 106, 140, 0.25);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+    body.dark .contact-links a {
+      color: #f8d7e0;
+      border-color: #f8d7e0;
+      box-shadow: 0 8px 20px rgba(154, 50, 90, 0.7);
+    }
+    .contact-links a:hover, .contact-links a:focus {
+      background: #d46a8c;
+      color: white;
+      outline: none;
+      box-shadow: 0 12px 32px rgba(212, 106, 140, 0.7);
+    }
+    body.dark .contact-links a:hover, body.dark .contact-links a:focus {
+      background: #f8d7e0;
+      color: #5a2a3c;
+      box-shadow: 0 12px 32px rgba(154, 50, 90, 0.9);
+    }
+    .contact-links a svg {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
+      transition: transform 0.3s ease;
+    }
+    .contact-links a:hover svg {
+      transform: scale(1.3);
+    }
+    /* Formulário */
+    form {
+      max-width: 600px;
+      margin: 0 auto 60px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      user-select: none;
+    }
+    form label {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+      user-select: text;
+      color: #8e2e4a;
+    }
+    body.dark form label {
+      color: #f8d7e0;
+    }
+    #sobre-mim P{
+        font-size: 25px;
+    }
+    form input, form textarea {
+      padding: 14px 18px;
+      font-size: 1.1rem;
+      border-radius: 12px;
+      border: 2px solid #d46a8c;
+      resize: vertical;
+      font-family: 'Gentium Basic', serif;
+      user-select: text;
+      transition: border-color 0.3s ease;
+      color: #5a2a3c;
+      background: #fff0f6;
+    }
+    body.dark form input, body.dark form textarea {
+      color: #f8d7e0;
+      background: #5a2a3c;
+      border-color: #f8d7e0;
+    }
+    form input:focus, form textarea:focus {
+      outline: none;
+      border-color: #8e2e4a;
+    }
+    form textarea {
+      min-height: 120px;
+    }
+    form button {
+      background: #d46a8c;
+      color: white;
+      font-weight: 700;
+      font-size: 1.3rem;
+      padding: 16px 0;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(212, 106, 140, 0.6);
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    form button:hover {
+      background: #8e2e4a;
+    }
+    /* Rodapé */
+    footer {
+      text-align: center;
+      font-size: 1.15rem;
+      color: #9b4d6a;
+      margin: 80px 0 40px 0;
+      user-select: none;
+    }
+    body.dark footer {
+      color: #f3c5d3;
+    }
+    /* Responsividade */
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+      }
+      header .intro h1 {
+        font-size: 3.2rem;
+      }
+      header .intro p {
+        font-size: 1.3rem;
+      }
+      nav {
+        font-size: 1.15rem;
+        gap: 30px;
+      }
+      .skills-container {
+        gap: 24px;
+      }
+      .skill-item {
+        min-width: 200px;
+        max-width: 320px;
+        font-size: 1rem;
+        padding: 14px 28px;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding: 0 8px;
+      }
+      .project-card {
+        padding: 28px 30px;
+      }
+      .project-card a {
+        font-size: 1.15rem;
+        padding: 14px 32px;
+      }
+      .contact-links {
+        gap: 36px;
+      }
+      .contact-links a {
+        font-size: 1.15rem;
+        padding: 16px 36px;
+      }
+      form {
+        gap: 18px;
+      }
+      form input, form textarea {
+        font-size: 1rem;
+        padding: 12px 14px;
+      }
+      form button {
+        font-size: 1.15rem;
+        padding: 14px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button id="theme-toggle" aria-label="Alternar tema claro e escuro">🌙</button>
+
+  <header>
+    <img src="img/Captura de tela 2025-05-15 081824.png" alt="Foto de Luna" title="Clique para alternar tema" id="profile-pic" />
+    <div class="intro">
+      <h1>Luna Santos</h1>
+      <p>Programadora em Desenvolvimento de Sistemas pelo SENAI | <br>Criando soluções inovadoras e eficientes</p>
+    </div>
+  </header>
+
+  <nav role="navigation" aria-label="Menu principal">
+    <a href="#sobre-mim" tabindex="1">Conheça-me</a>
+    <a href="#hard-soft-skills" tabindex="2">Skills</a>
+    <a href="#projetos" tabindex="3">Projetos</a>
+    <a href="#formacao" tabindex="4">Formação</a>
+    <a href="#certificacoes" tabindex="5">Certificações</a>
+    <a href="#depoimentos" tabindex="6">Depoimentos</a>
+    <a href="#blog" tabindex="7">Blog</a>
+    <a href="#contato" tabindex="8">Contato</a>
+  </nav>
+
+  <main>
+
+    <section id="sobre-mim" tabindex="0">
+      <h2>Conheça-me ;)</h2>
+      <br>
+      <p>▫️ Programadora dedicada, atuando no desenvolvimento de soluções criativas, eficientes e adaptadas às necessidades dos usuários e do mercado. <br>
+        <br>
+        ▫️ Possui forte compromisso com a entrega de resultados de alta qualidade, mantendo sempre o foco na melhoria contínua, no aprendizado constante e na evolução técnica.<br>
+        <br>
+        ▫️ Proativa, colaborativa e atenta às tendências tecnológicas, busca contribuir de forma significativa para o sucesso de projetos e o crescimento das equipes com as quais trabalha.<br>
+        <br>
+        ▫️ Com experiência em front-end e back-end, utilizando linguagens como JavaScript, HTML, CSS, C#, e C++. Atua no desenvolvimento e integração de sistemas web completos, com foco em eficiência, qualidade e usabilidade.</p>
+        
+    </section>
+
+    <section id="hard-soft-skills" tabindex="0">
+      <h2>Hard Skills</h2>
+      <div class="skills-container" aria-label="Lista de habilidades técnicas e interpessoais">
+
+        <!-- Hard Skills -->
+<div class="skill-item" title="JavaScript">
+    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.754-1.333-1.754-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.997.108-.776.42-1.305.763-1.605-2.665-.3-5.466-1.335-5.466-5.93 0-1.31.47-2.38 1.235-3.22-.125-.303-.535-1.523.115-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.02.005 2.045.138 3.003.404 2.28-1.552 3.285-1.23 3.285-1.23.655 1.653.245 2.873.12 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.805 5.625-5.475 5.92.43.37.815 1.096.815 2.21 0 1.595-.015 2.88-.015 3.27 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
+    </svg>
+    JavaScript
+  </div>
+  
+  <div class="skill-item" title="C#">
+    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <!-- Ícone genérico para C# -->
+      <rect x="2" y="2" width="20" height="20" fill="#68217A" rx="3" ry="3"/>
+      <text x="12" y="16" font-size="10" fill="white" font-family="Arial" font-weight="bold" text-anchor="middle">C#</text>
+    </svg>
+    C#
+  </div>
+  
+  <div class="skill-item" title="CSS">
+    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="#264de4" d="M1.5 0h21l-1.9 21.6L12 24l-8.6-2.4L1.5 0z"/>
+      <path fill="#2965f1" d="M12 22.2l6.9-1.9 1.6-18.1H12v20z"/>
+      <path fill="#ebebeb" d="M7.8 7.7h8.4l-.7 7.9-3.6 1-.2-.1-3.6-1-.2-.1-.3-3.3h2.5l.1 1.4 1.6.4 1.6-.4.1-1.4H7.8z"/>
+    </svg>
+    CSS
+  </div>
+  
+  <div class="skill-item" title="C++">
+    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <!-- Ícone genérico para C++ -->
+      <rect x="2" y="2" width="20" height="20" fill="#00599C" rx="3" ry="3"/>
+      <text x="12" y="16" font-size="10" fill="white" font-family="Arial" font-weight="bold" text-anchor="middle">C++</text>
+    </svg>
+    C++
+  </div>
+  
+  <div class="skill-item" title="HTML">
+    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="#e34f26" d="M1.5 0h21l-1.9 21.6L12 24l-8.6-2.4L1.5 0z"/>
+      <path fill="#ef652a" d="M12 22.2l6.9-1.9 1.6-18.1H12v20z"/>
+      <path fill="#fff" d="M7.8 7.7h8.4l-.7 7.9-3.6 1-.2-.1-3.6-1-.2-.1-.3-3.3h2.5l.1 1.4 1.6.4 1.6-.4.1-1.4H7.8z"/>
+    </svg>
+    HTML
+  </div>
+  
+  <div class="skill-item" title="SQL / MySQL">
+    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <circle cx="12" cy="12" r="10" stroke="none" fill="white"/>
+      <path fill="#d46a8c" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+      <path fill="#fff" d="M7 9h10v2H7zm0 4h7v2H7z"/>
+    </svg>
+    SQL / MySQL
+  </div>
+  
+  <div class="skill-item" title="NUnit">
+    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <!-- Ícone genérico NUnit -->
+      <circle cx="12" cy="12" r="10" fill="#003a6d"/>
+      <text x="12" y="16" font-size="8" fill="white" font-family="Arial" font-weight="bold" text-anchor="middle">NUnit</text>
+    </svg>
+    NUnit
+  </div>
+  
+  <div class="skill-item" title="Selenium IDE">
+    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <!-- Ícone genérico Selenium -->
+      <rect x="2" y="2" width="20" height="20" fill="#43b02a" rx="3" ry="3"/>
+      <text x="12" y="16" font-size="8" fill="white" font-family="Arial" font-weight="bold" text-anchor="middle">Selenium</text>
+    </svg>
+    Selenium IDE
+  </div>
+  
+  <div class="skill-item" title="Modelagem">
+    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <!-- Ícone genérico Modelagem -->
+      <rect x="4" y="4" width="16" height="16" stroke="#555" stroke-width="2" fill="none" rx="2" ry="2"/>
+      <path d="M4 12h16M12 4v16" stroke="#555" stroke-width="2"/>
+    </svg>
+    Modelagem
+  </div>
+  
+  <div class="skill-item" title="IoT">
+    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <!-- Ícone genérico IoT -->
+      <circle cx="12" cy="12" r="10" fill="#007acc"/>
+      <circle cx="12" cy="12" r="5" fill="white"/>
+      <circle cx="12" cy="12" r="2" fill="#007acc"/>
+    </svg>
+    IoT
+  </div>
+  </section>
+  <section id="hard-soft-skills" tabindex="0">
+    <h2>Soft Skills</h2>
+    <div class="skills-container" aria-label="Lista de habilidades técnicas e interpessoais">
+
+        <!-- Soft Skills -->
+        <div class="skill-item" title="Comunicação">
+          <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 0 0-7.07 17.07l-1.42 4.24 4.24-1.42A10 10 0 1 0 12 2zM11 11h2v5h-2v-5zm1-4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/></svg>
+          Comunicação
+        </div>
+
+        <div class="skill-item" title="Trabalho em equipe">
+          <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 11c1.66 0 3-1.34 3-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          Trabalho em equipe
+        </div>
+
+        <div class="skill-item" title="Proatividade">
+          <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.1-.45 2.1-1.17 2.83l1.42 1.42C19.03 14.03 20 12.63 20 11c0-4.42-3.58-8-8-8zM6.41 5.59L5 7l4 4v-3c0-3.31 2.69-6 6-6 1.63 0 3.03.97 3.75 2.42l-1.42 1.42C13.1 4.45 12.1 4 11 4H6.41z"/></svg>
+          Proatividade
+        </div>
+
+        <div class="skill-item" title="Organização">
+          <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-10v2h14V7H7z"/></svg>
+          Organização
+        </div>
+
+        <div class="skill-item" title="Aprendizado contínuo">
+          <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 0 0-7.07 17.07l-1.42 4.24 4.24-1.42A10 10 0 1 0 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+          Aprendizado contínuo
+        </div>
+
+        <div class="skill-item" title="Pensamento crítico">
+          <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+          Pensamento crítico
+        </div>
+
+        <div class="skill-item" title="Comunicação intercultural">
+          <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 0 0-7.07 17.07l-1.42 4.24 4.24-1.42A10 10 0 1 0 12 2zM11 11h2v5h-2v-5zm1-4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/></svg>
+          Comunicação intercultural
+        </div>
+
+        <div class="skill-item" title="Resiliência">
+          <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+          Resiliência
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- As outras seções (projetos, formação, certificações, depoimentos, blog, contato) permanecem iguais ao modelo anterior -->
+
+    <!-- Projetos -->
+    <section id="projetos" tabindex="0">
+        <h2>Projetos</h2>
+        <div class="projects-grid">
+      
+          <article class="project-card" tabindex="0" aria-label="Projeto Sistema de Controle de Tarefas">
+            <h3>Sistema de Controle de Tarefas</h3>
+            <img src="img/Captura de tela 2025-05-15 080550.png" alt="Imagem do Sistema de Controle de Tarefas" />
+            <p>Permite que os usuários tenham controle de suas tarefas para facilitar durante o dia a dia.</p>
+            <a href="https://luaasants.github.io/Todo-Lista/" target="_blank" rel="noopener noreferrer" aria-label="Ver código no GitHub do Sistema de Controle de Tarefas">Ver Projeto.</a>
+          </article>
+      
+          <article class="project-card" tabindex="0" aria-label="Projeto Site Portfólio Pessoal">
+            <h3>Site Portfólio Pessoal</h3>
+            <img src="img/Captura de tela 2025-05-15 080751.png" alt="Imagem do Site Portfólio Pessoal" />
+            <p>Site responsivo em HTML, CSS e JavaScript para apresentar meus projetos e habilidades com design moderno.</p>
+            <a href="https://seunome.github.io/portfolio" target="_blank" rel="noopener noreferrer" aria-label="Ver demo online do Site Portfólio Pessoal">Ver Projeto.</a>
+          </article>
+      
+          <article class="project-card" tabindex="0" aria-label="Projeto Aplicação Web para buscar BuscarCep">
+            <h3>Aplicação Web para BuscarCep</h3>
+            <img src="img/Captura de tela 2025-05-15 080820.png" alt="Imagem da Aplicação Web para BuscarCep" />
+            <p>App de buscar cep com api própria.</p>
+            <a href="https://luaasants.github.io/BuscarCep/" target="_blank" rel="noopener noreferrer" aria-label="Ver código no GitHub da Aplicação Web para Lista de Tarefas">Ver Projeto.</a>
+          </article>
+      
+          <article class="project-card" tabindex="0" aria-label="Projeto Blog Pessoal">
+            <h3>Previsão do tempo</h3>
+            <img src="img/Captura de tela 2025-05-15 080832.png" alt="Imagem do App de Previsão do Tempo" />
+            <p>Previsão do tempo de acordo com a cidade.</p>
+            <a href="https://luaasants.github.io/AppPrevisao/" target="_blank" rel="noopener noreferrer" aria-label="Visitar Blog Pessoal">Ver Projeto.</a>
+          </article>
+      
+        </div>
+      </section>
+      
+
+    <!-- Formação Acadêmica -->
+    <section id="formacao" tabindex="0">
+      <h2>Formação Acadêmica</h2>
+      <ul class="education-list">
+        <li>
+          <strong>Técnico em Desenvolvimento de Sistemas</strong> - SENAI (2023)<br />
+          Formação técnica focada em programação, banco de dados, análise de sistemas e desenvolvimento web.
+        </li>
+        <li>
+          <strong>Ensino Médio </strong>  SENAI-CETAF -Serviço Nacional de Aprendizagem Industrial (2023)<br />
+          Base sólida em lógica e nas de: Linguagens, Matemática e Ciências da Natureza, além de conhecimentos abrangentes em algoritmos, estruturas de dados, linguagens de programação e paradigmas computacionais.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Certificações e Prêmios -->
+    <section id="certificacoes" tabindex="0">
+      <h2>Extra-curricular</h2>
+      <ul class="certifications-list">
+        <li>
+          <strong>Curso de criação de sites (60h)</strong> - SENAI- CETAF (2024)
+        </li>
+        <li>
+          <strong>Oficina de desenvolvimento de jogos. (24h)</strong> - SENAI- CETAF (2023)
+        </li>
+        <li>
+          <strong>Prêmio de Melhor Projeto Empresarial. </strong> - SENAI (2023)
+        </li>
+        <li>
+            <strong>Curso de prototipação 3D. (24h)</strong> - SENAI- CETAF (2023)
+          </li>
+          <li>
+            <strong>Curso de Qualidade à Produtividade & Indústria 4.0. (86h)</strong> - SENAI- CETAF (2023)
+          </li>
+          <li>
+            <strong>Fundamentos e introdução a Eletroeletrônica (240h)</strong> - SENAI- CETAF (2024)
+          </li>
+          <li>
+            <strong>Curso de Qualidade à Produtividade & Indústria 4.0. (86h)</strong> - SENAI- CETAF (2023)
+          </li>
+          <li>
+            <strong>Lógica de programação I & II. (320h)</strong> - SENAI- CETAF (2023)
+          </li>
+      </ul>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" tabindex="0">
+      <h2>Depoimentos</h2>
+      <div class="testimonials">
+        <div class="testimonial-item">
+          “Trabalhar com Luna foi uma experiência fantástica. Sua dedicação e conhecimento técnico fizeram toda a diferença no nosso projeto.”
+          <div class="testimonial-author">- Wallace Oliveira, Instrutor de Tecnologia da Informação Senai-SE</div>
+        </div>
+        <div class="testimonial-item">
+            "Trabalhar com Luna foi uma experiência maravilhosa. A sua dedicação e expertise técnica foram cruciais para o desenvolvimento do nosso projeto."
+            <div class="testimonial-author">- Lucas Pedral, Colega de trabalho</div>
+          </div>
+        <div class="testimonial-item">
+          “Profissional comprometida, sempre entregando soluções criativas e eficientes. Recomendo para qualquer desafio de desenvolvimento.”
+        <div class="testimonial-author">- Daniele Gomes, Cliente</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog / Artigos -->
+    <section id="blog" tabindex="0">
+      <h2>Blog & Artigos</h2>
+      <ul class="blog-list">
+        <li>
+          <a href="https://seublog.com/artigo1" target="_blank" rel="noopener noreferrer" aria-label="Ler artigo sobre tendências em desenvolvimento web 2025">Tendências em Desenvolvimento Web para 2025</a><br />
+          Publicado em 10 de Abril de 2025
+        </li>
+        <li>
+          <a href="https://seublog.com/artigo2" target="_blank" rel="noopener noreferrer" aria-label="Ler artigo sobre boas práticas em React">Boas Práticas em React</a><br />
+          Publicado em 22 de Março de 2025
+        </li>
+      </ul>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" tabindex="0">
+      <h2>Contato</h2>
+      <p>Interessada em colaborar? Entre em contato para projetos, parcerias ou dúvidas!</p>
+
+      <form id="contact-form" aria-label="Formulário de contato">
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="name" placeholder="Seu nome completo" required autocomplete="name" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required autocomplete="email" />
+
+        <label for="message">Mensagem</label>
+        <textarea id="message" name="message" placeholder="Escreva sua mensagem aqui..." required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+
+      <div class="contact-links" role="list">
+        <a href="mailto:lu98na10a@email.com" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Enviar email para lu98na10a@email.com">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 4v16h20V4H2zm18 2v.01L12 13 4 6.01V6h16zM4 18V8l8 6 8-6v10H4z"/></svg>
+          Email
+        </a>
+        <a href="https://www.linkedin.com/in/luna-santos-247377322" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Perfil LinkedIn de Luna">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 5 3.9 6 2.5 6S0 5 0 3.5 1.12 1 2.5 1 4.98 2 4.98 3.5zM0 8h5v16H0V8zm7 0h5v2.5h.1c.7-1.3 2.4-2.5 4.9-2.5 5.2 0 6.2 3.4 6.2 7.8V24h-5v-7.5c0-1.8-.03-4.1-2.5-4.1-2.5 0-2.9 2-2.9 4v7.6H7V8z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/LuaaSants" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Perfil GitHub de Luna">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.754-1.333-1.754-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.997.108-.776.42-1.305.763-1.605-2.665-.3-5.466-1.335-5.466-5.93 0-1.31.47-2.38 1.235-3.22-.125-.303-.535-1.523.115-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.02.005 2.045.138 3.003.404 2.28-1.552 3.285-1.23 3.285-1.23.655 1.653.245 2.873.12 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.805 5.625-5.475 5.92.43.37.815 1.096.815 2.21 0 1.595-.015 2.88-.015 3.27 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Luna Santos. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Alternar tema claro/escuro
+    const btn = document.getElementById('theme-toggle');
+    const body = document.body;
+    btn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      btn.textContent = body.classList.contains('dark') ? '☀️' : '🌙';
+    });
+    // Alternar tema clicando na foto também
+    document.getElementById('profile-pic').addEventListener('click', () => {
+      btn.click();
+    });
+
+    // Formulário simples: só impede envio vazio e alerta
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      if (!name || !email || !message) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+      }
+      alert(`Obrigado pela mensagem, ${name}! Entrarei em contato em breve.`);
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
